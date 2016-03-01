@@ -17,7 +17,7 @@ var client_id = 'c0f7afc3520542959e587d2249cda4e1'; // Your client id
 var client_secret = '8f15c046151345d88cb373847dece382'; // Your client secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
-var echo_nest = 'http://developer.echonest.com/api/v4/'
+var echo_nest = 'http://developer.echonest.com/api/v4/';
 var echo_api_id = 'G92VW09ZBNGLUVN8C';
 
 /*

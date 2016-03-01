@@ -69,6 +69,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script>
+    var echo_nest = 'http://developer.echonest.com/api/v4/';
     function generateSong() {
         var url = echo_nest + 'song/search';
         $.getJSON(url, { 'format':'json',
@@ -81,7 +82,7 @@
                 var myJSONObject = data;
                 console.log(myJSONObject);
             });
-    });
+    };
     </script>
   <script>
       (function() {
