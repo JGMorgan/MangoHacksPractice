@@ -62,8 +62,8 @@ app.get('/login', function(req, res) {
 
 */
 app.get('/grab', function generateColor() {
-    var img = '\gym.jpg'
-    color(img,function(err,code){
+    var img = ''
+    color(img,function(err,color){
       console.log(color)
     })
 });
