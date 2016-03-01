@@ -66,7 +66,7 @@ app.get('/grab', function generateColor() {
     color(img,function(err,code){
       console.log(color)
     })
-})
+});
 
 app.get('/callback', function(req, res) {
 
