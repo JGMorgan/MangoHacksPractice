@@ -66,6 +66,19 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script>
+    function generateSong() {
+        var url = echo_nest + 'song/search';
+        $.getJSON(url, { 'format':'json',
+            api_key: echo_api_id,
+            mood: 'happy',
+        },
+            function (data) {
+               // var songs = [];
+                // songs.push(data.id);
+                var myJSONObject = data;
+                console.log(myJSONObject);
+            });
+    });
       (function() {
 
         /**
@@ -142,4 +155,3 @@
       })();
     </script>
 </html>
-

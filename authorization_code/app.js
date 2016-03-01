@@ -59,24 +59,12 @@ app.get('/login', function(req, res) {
     }));
 });
 /*
-app.get('/grab', function generateSong() {
-    var url = echo_nest + 'song/search';
-    $.getJSON(url, {
-        api_key: echo_api_id,
-        mood: 'happy',
-    },
-        function (data) {
-           // var songs = [];
-            // songs.push(data.id);
-            var myJSONObject = data;
-            print(myJSONObject);
-        });
-});
+
 */
 app.get('/grab', function generateColor() {
     var img = '\gym.jpg'
     color(img,function(err,code){
-      console.log(color)  
+      console.log(color)
     })
 })
 
