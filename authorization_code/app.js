@@ -74,11 +74,11 @@ app.get('/grab', function generateSong() {
 });
 */
 app.get('/grab', function generateColor() {
-    var img = '\gym.jpg'
-    color(img,function(err,code){
-      console.log(color)  
-    })
-})
+    var img = 'C:\Users\Leon\Documents\GitHub\MangoHacksPractice\authorization_code\gym.jpg';
+    color(img, function (err, code) {
+        console.log(color)
+    });
+});
 
 app.get('/callback', function(req, res) {
 
