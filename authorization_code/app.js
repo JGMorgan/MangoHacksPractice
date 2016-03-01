@@ -11,6 +11,7 @@ var request = require('request'); // "Request" library
 var handlebars = require('handlebars');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
+var color = require('dominant-color');
 
 var client_id = 'c0f7afc3520542959e587d2249cda4e1'; // Your client id
 var client_secret = '8f15c046151345d88cb373847dece382'; // Your client secret
@@ -57,7 +58,7 @@ app.get('/login', function(req, res) {
       state: state
     }));
 });
-
+/*
 app.get('/grab', function generateSong() {
     var url = echo_nest + 'song/search';
     $.getJSON(url, {
@@ -65,10 +66,19 @@ app.get('/grab', function generateSong() {
         mood: 'happy',
     },
         function (data) {
-            var songs = [];
-            songs.push(data.id);
+           // var songs = [];
+            // songs.push(data.id);
+            var myJSONObject = data;
+            print(myJSONObject);
         });
 });
+*/
+app.get('/grab', function generateColor() {
+    var img = '\gym.jpg'
+    color(img,function(err,code){
+      console.log(color)  
+    })
+})
 
 app.get('/callback', function(req, res) {
 
