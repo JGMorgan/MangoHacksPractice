@@ -31,7 +31,7 @@
         </div>
         <br>
         <div id="upload">
-            <input type="file" id="fileUploadd" onchange="getColor(canvas)"/>
+            <input type="file" id="fileUpload" onchange="getColor()"/>
             <canvas id="canvas" style="background-color:#ffffff;"></canvas>
         </div>
       <div id="loggedin">
@@ -74,8 +74,8 @@
 
     <script>
 
-        function getColor(canvas) {
-            var selectIMG = document.getElementById(canvas);
+        function getColor() {
+            var selectIMG = document.getElementById("canvas");
             var context = selectIMG.getContext("2d");
             function readImage() {
                 if (this.files && this.files[0]) {
