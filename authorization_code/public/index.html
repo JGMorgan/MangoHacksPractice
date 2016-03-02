@@ -78,12 +78,8 @@
         $.ajaxSetup({ traditional: true });
         $.getJSON(url, { 'format':'json',
             api_key: echo_api_id,
-<<<<<<< HEAD
-            mood: 'sad',
-=======
             bucket: ['id:spotify','tracks'],
             mood: 'happy'
->>>>>>> dcb0684340769d97b93194d470e4991c69bcd0c1
         },
             function (data) {
                // var songs = [];
@@ -169,4 +165,3 @@
         }
       })();
     </script>
-
