@@ -72,6 +72,7 @@
     <script>
     var echo_nest = 'http://developer.echonest.com/api/v4/';
     var echo_api_id = 'G92VW09ZBNGLUVN8C';
+    var datas = [];
     function generateSong() {
         var url = echo_nest + 'song/search';
         $.getJSON(url, { 'format':'json',
@@ -82,7 +83,7 @@
             function (data) {
                // var songs = [];
                 // songs.push(data.id);
-                var myJSONObject = data;
+                var myJSONObject = data.response.songs[0].artist_foreign_ids[0].foreign_id;
                 console.log(myJSONObject);
             });
     };
