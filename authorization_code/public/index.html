@@ -75,15 +75,16 @@
     var datas = [];
     function generateSong() {
         var url = echo_nest + 'song/search';
+        $.ajaxSetup({ traditional: true });
         $.getJSON(url, { 'format':'json',
             api_key: echo_api_id,
-            bucket:'id:spotify',
-            mood: 'happy',
+            bucket: ['id:spotify','tracks'],
+            mood: 'happy'
         },
             function (data) {
                // var songs = [];
                 // songs.push(data.id);
-                var myJSONObject = data.response.songs[0].artist_foreign_ids[0].foreign_id;
+                var myJSONObject = data.response.songs[0].tracks[0].foreign_id;
                 console.log(myJSONObject);
             });
     };
