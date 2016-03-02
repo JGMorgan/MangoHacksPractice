@@ -11,7 +11,8 @@ var request = require('request'); // "Request" library
 var handlebars = require('handlebars');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
-var color = require('dominant-color');
+var color = require('dominant-color'),
+    imgPath = 'C:\Users\Leon\Documents\GitHub\MangoHacksPractice\authorization_code\gym.jpg';
 
 var client_id = 'c0f7afc3520542959e587d2249cda4e1'; // Your client id
 var client_secret = '8f15c046151345d88cb373847dece382'; // Your client secret
@@ -62,10 +63,49 @@ app.get('/login', function(req, res) {
 
 */
 app.get('/grab', function generateColor() {
-    var img = ''
-    color(img,function(err,color){
-      console.log(color)
-    })
+    
+    var image = document.createElement('img'),
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+			i = -4,
+			count = 0,
+			rgb = {
+			    r: 0,
+			    g: 0,
+			    b: 0
+			},
+			data, width, height, length;
+    image.src = imgPath;
+    image.id = 'colorIMG';
+    image.style.display = 'none';
+
+    height = canvas.height = img.naturalHeight || img.offsetHeight || img.height;
+    width = canvas.width = img.naturalWidth || img.offsetWidth || img.width;
+    context.drawImage(image, 0, 0);
+    try {
+        data = context.getImageData(0, 0, width, height);
+    }
+    catch (e) {
+        // security error, img on different domain
+        return options.fallback_color;
+    }
+
+    length = data.data.length;
+
+    // get rgb values for each pixel at the end of the block
+    while ((i += blocksize * 4) < length) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i + 1];
+        rgb.b += data.data[i + 2];
+    }
+
+    // ~~used to floor values
+    rgb.r = ~~(rgb.r / count);
+    rgb.g = ~~(rgb.g / count);
+    rgb.b = ~~(rgb.b / count);
+
+    console.log('rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')');
 });
 
 app.get('/callback', function(req, res) {
