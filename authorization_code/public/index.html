@@ -76,9 +76,10 @@
 
         function getColor() {
             var selectIMG = document.getElementById("canvas");
+            var getFile = document.getElementById("fileUpload");
             var context = selectIMG.getContext("2d");
             function readImage() {
-                if (this.files && this.files[0]) {
+                if (getFile.files && getFile.files[0]) {
                     var FR = new FileReader();
                     FR.onload = function (e) {
                         var img = new Image();
@@ -87,7 +88,7 @@
                         };
                         img.src = e.target.result;
                     };
-                    FR.readAsDataURL(this.files[0]);
+                    FR.readAsDataURL(getFile.files[0]);
                 }
             }
 
@@ -95,6 +96,7 @@
 
 
     </script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script>
