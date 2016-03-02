@@ -37,7 +37,8 @@
         <button class="btn btn-default" id="obtain-new-token" >Obtain new token using the refresh token</button>
       </div>
     </div>
-
+      </body>
+</html>
     <script id="user-profile-template" type="text/x-handlebars-template">
       <h1>Logged in as {{display_name}}</h1>
       <div class="media">
@@ -71,16 +72,23 @@
     <script>
     var echo_nest = 'http://developer.echonest.com/api/v4/';
     var echo_api_id = 'G92VW09ZBNGLUVN8C';
+    var datas = [];
     function generateSong() {
         var url = echo_nest + 'song/search';
+        $.ajaxSetup({ traditional: true });
         $.getJSON(url, { 'format':'json',
             api_key: echo_api_id,
+<<<<<<< HEAD
             mood: 'sad',
+=======
+            bucket: ['id:spotify','tracks'],
+            mood: 'happy'
+>>>>>>> dcb0684340769d97b93194d470e4991c69bcd0c1
         },
             function (data) {
                // var songs = [];
                 // songs.push(data.id);
-                var myJSONObject = data;
+                var myJSONObject = data.response.songs[0].tracks[0].foreign_id;
                 console.log(myJSONObject);
             });
     };
@@ -161,4 +169,4 @@
         }
       })();
     </script>
-</html>
+
