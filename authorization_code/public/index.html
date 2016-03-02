@@ -82,10 +82,9 @@
             mood: 'happy'
         },
             function (data) {
-               // var songs = [];
-                // songs.push(data.id);
                 var myJSONObject = data.response.songs[0].tracks[0].foreign_id;
-                console.log(myJSONObject);
+                songID = myJSONObject.split(":");
+                console.log(songID[2]);
             });
     };
     </script>
