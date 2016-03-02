@@ -93,8 +93,8 @@
                     if (data.response.songs[i].tracks[0] != null) {
                         var myJSONObject = data.response.songs[i].tracks[0].foreign_id;
                         songID = myJSONObject.split(":");
-                        console.log(myJSONObject);
-                        datas.push(songID);
+                        console.log(songID[2]);
+                        datas.push(songID[2]);
                     }
 
                 }
