@@ -33,6 +33,7 @@
         <div id="upload">
             <input type="file" id="fileUpload" onchange="getColor()"/>
             <canvas id="canvas" width="900" height="600" style="background-color:#ffffff;"></canvas>
+            <img src="" height="200" alt="Image preview...">
         </div>
       <div id="loggedin">
         <div id="user-profile">
@@ -75,8 +76,12 @@
     <script>
 
         function getColor() {
+            
             var selectIMG = document.getElementById("canvas");
             var getFile = document.getElementById("fileUpload");
+            if (getFile == null) {
+                console.log("cannot find by ID");
+            }
             var context = selectIMG.getContext("2d");
             function readImage() {
                 if (getFile.files && getFile.files[0]) {
@@ -88,10 +93,25 @@
                         };
                         img.src = e.target.result;
                     };
-                    FR.readAsDataURL(getFile.files[0]);
+                    if (FR.readAsDataURL(getFile.files[0]) == null) {
+                        console.log("cannot get img data url");
+                    };
                 }
             }
+            
+            /*
+                var preview = document.querySelector('img');
+                var file = document.querySelector('input[type=file]').files[0];
+                var reader = new FileReader();
 
+                reader.addEventListener("load", function () {
+                    preview.src = reader.result;
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            */
         }
 
 
