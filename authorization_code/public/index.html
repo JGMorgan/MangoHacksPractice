@@ -121,7 +121,6 @@
     */
       }
 
-      <!-- Andres start testing code -->
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
@@ -135,7 +134,6 @@
           reader.readAsDataURL(input.files[0]);
         }
       }
-      <!-- Andres end testing code -->
 
 
     </script>
@@ -165,7 +163,7 @@
                         songID = myJSONObject.split(":");
                         console.log(songID[2]);
                         datas.push(songID[2]);
-                        var spotifyCheckURL = "https://api.spotify.com/v1/tracks/" + songID[2] + "?market=US";
+                        var spotifyCheckURL = "https://api.spotify.com/v1/tracks/" ;
                         $.getJSON(spotifyCheckURL,
                             function (data2) {
 
@@ -178,6 +176,7 @@
 
                 }
                 x.src = x.src.slice(0, -1);
+                x.src += "?market=US";
             });
     };
     </script>
