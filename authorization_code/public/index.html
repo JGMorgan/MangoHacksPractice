@@ -35,6 +35,10 @@
             <br>
         </div>
         <br>
+        <iframe id="bob" src=""
+        frameborder="0" allowtransparency="true">
+        </iframe>
+        <br>
         <div id="upload">
           <input type='file' onchange="readURL(this);" />
           <img id="blah" src="#" alt="your image" />
@@ -143,6 +147,8 @@
     var echo_api_id = 'G92VW09ZBNGLUVN8C';
     var datas = [];
     function generateSong() {
+        var x = document.getElementById("bob");
+        x.src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:";
         var url = echo_nest + 'song/search';
         $.ajaxSetup({ traditional: true });
         $.getJSON(url, { 'format':'json',
@@ -159,9 +165,11 @@
                         songID = myJSONObject.split(":");
                         console.log(songID[2]);
                         datas.push(songID[2]);
+                        x.src += songID[2] + ",";
                     }
 
                 }
+                x.src = x.src.slice(0, -1);
             });
     };
     </script>
