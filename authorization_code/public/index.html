@@ -23,12 +23,16 @@
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
         <br>
-        <div id="grab"> 
+        <div id="grab">
             <a href="/grab" class="btn btn-primary">TESTING</a>
             <br>
             <button class="btn-default" id="get-color" onclick="generateSong()">Colors</button>
             <br>
         </div>
+        <br>
+        <iframe id="bob" src=""
+        frameborder="0" allowtransparency="true">
+        </iframe>
         <br>
         <div id="upload">
             <input type="file" id="fileUpload" onchange="getColor()"/>
@@ -76,7 +80,7 @@
     <script>
 
         function getColor() {
-            
+
             var selectIMG = document.getElementById("canvas");
             var getFile = document.getElementById("fileUpload");
             if (getFile == null) {
@@ -98,7 +102,8 @@
                     };
                 }
             }
-            
+
+
             /*
                 var preview = document.querySelector('img');
                 var file = document.querySelector('input[type=file]').files[0];
@@ -124,6 +129,8 @@
     var echo_api_id = 'G92VW09ZBNGLUVN8C';
     var datas = [];
     function generateSong() {
+        var x = document.getElementById("bob");
+        x.src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:";
         var url = echo_nest + 'song/search';
         $.ajaxSetup({ traditional: true });
         $.getJSON(url, { 'format':'json',
@@ -140,9 +147,11 @@
                         songID = myJSONObject.split(":");
                         console.log(songID[2]);
                         datas.push(songID[2]);
+                        x.src += songID[2] + ",";
                     }
 
                 }
+                x.src = x.src.slice(0, -1);
             });
     };
     </script>
