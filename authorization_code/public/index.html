@@ -163,7 +163,7 @@
                         songID = myJSONObject.split(":");
                         console.log(songID[2]);
                         datas.push(songID[2]);
-                        var spotifyCheckURL = "https://api.spotify.com/v1/tracks/" ;
+                        var spotifyCheckURL = "https://api.spotify.com/v1/tracks/" + songID[2] + "?market=US";
                         $.getJSON(spotifyCheckURL,
                             function (data2) {
 
@@ -176,7 +176,6 @@
 
                 }
                 x.src = x.src.slice(0, -1);
-                x.src += "?market=US";
             });
     };
     </script>
